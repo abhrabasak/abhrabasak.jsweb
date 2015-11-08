@@ -1,1 +1,37 @@
-Hello World!!
+---
+title: Home
+stylesheets:
+- home
+- webicons
+---
+<main class="home view">
+  <section class="display-pic">
+    {{> image src='/assets/images/photo.jpg' alt='This is how I look' }}
+  </section>
+  <section class="hello-intro">
+    <h3 class="tagline">Computer Enthusiast / Gamer / Foodie<br/>Jack of All Trades, Master of None</h3>
+    <p>
+      <strong>Hey, Hi and Hello!</strong> I am a 23-year old Computer Science Graduate from
+      <strong>{{> link text='IIT Mandi' url='http://iitmandi.ac.in'}}</strong> (living in Hyderabad).
+      I am passionate about Web and Mobile Technologies, and also enjoy Football, Puzzles, Action Movies and Pop Music.
+      I'm glad you visited my website. Have a look around.
+    </p>
+    <p>
+      I'm always looking for ideas that might make my work more creative. In my free time, I read developers' blogs and
+      build sotware that is easy to use. I derive inspiration from popular music, and love listening to Internet Radio.
+      My professional interests include Software Engineering, Machine Learning, Security and Big Data. And I love Hackathons.
+    </p>
+    <p>
+      I am currently working at <strong>{{> link text='Microsoft' url='http://microsoft.com'}}</strong> IDC (Hyderabad),
+      in <strong>{{> link text='Bing' url='http://bing.com'}}</strong> Entity Experiences, where I build compelling
+      user experiences using the Satori Knowledge Graph.
+      I am also currently involved in building an open-source framework,
+      <strong>{{> link text='HazelWard' url='https://github.com/Abhra1992/hazelward'}}</strong> for NVIDIA CUDA,
+      and am looking for contributors for the same.
+    </p>
+  </section>
+  <section class="home-social">
+    <h5>Find out what I'm up to:</h5>
+    {{> social classnames="social panel" contacts=contact}}
+  </section>
+</main>

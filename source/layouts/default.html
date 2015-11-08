@@ -1,2 +1,16 @@
-{{> header}}
-{{> body}}
+<!doctype html>
+<html>
+  {{> head}}
+
+  <body class="<%= page_classes %>">
+    {{> header}}
+    {{> body}}
+    {{> footer}}
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(document).foundation();
+      });
+    </script>
+  </body>
+</html>
