@@ -11,6 +11,7 @@
   "dependencies": {
     "coffee-script": "^1.10.0",
     "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
     "panini": "^0.1.0"
   }
 }
