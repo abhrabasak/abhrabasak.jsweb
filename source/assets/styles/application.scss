@@ -1,0 +1,14 @@
+@import 'settings';
+$include-html-global-classes: true;
+@import 'foundation/components/grid';
+$include-html-top-bar-classes: true;
+@import 'foundation/components/top-bar';
+$include-html-panel-classes: true;
+@import 'foundation/components/panels';
+$include-html-type-classes: true;
+@import 'foundation/components/type';
+@import 'base';
+
+body{
+	@include grid-column(12, $collapse: true);
+}

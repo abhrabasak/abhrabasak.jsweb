@@ -1,0 +1,22 @@
+{
+  "name": "auriolis",
+  "description": "ABHRA's Website",
+  "main": "index.js",
+  "authors": [
+    "Abhra Basak"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "abhra.in",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.3"
+  }
+}
