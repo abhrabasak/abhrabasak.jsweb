@@ -10,6 +10,11 @@ layout = require 'gulp-layout'
 del = require 'del'
 frontmatter = require 'gulp-front-matter'
 _ = require 'underscore'
+tHelpers = require 'template-helpers'
+registrar = require 'handlebars-registrar'
+
+# https://github.com/jonschlinkert/template-helpers
+registrar gulpHB.handlebars, { helpers: tHelpers._ }
 
 config =
   panini: # https://github.com/zurb/panini
