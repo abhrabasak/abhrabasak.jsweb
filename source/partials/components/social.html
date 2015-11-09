@@ -1,8 +1,5 @@
 <div class="{{classnames}}">
-  {{#each contacts}}
-  {{> webicon-link text=@key url=this class=@key}}
+  {{#each contacts as |address contact|}}
+  {{> webicon-link text=contact url=address class=contact}}
   {{/each}}
-  {{!#each contacts as |contact, address|}}
-  {{!> link text=contact url=address}}
-  {{!/each}}
 </div>
