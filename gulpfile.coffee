@@ -4,14 +4,17 @@ connect = require 'gulp-connect'
 sass = require 'gulp-sass'
 coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
-# gulpHB = require 'gulp-hb'
-# layout = require 'gulp-layout'
+gulpHB = require 'gulp-hb'
+path = require 'path'
+layout = require 'gulp-layout'
 del = require 'del'
-# rename = require 'gulp-rename'
-# handlebars = require 'handlebars'
-# HandlebarsHelpers = require 'handlebars-helpers'
+frontmatter = require 'gulp-front-matter'
+_ = require 'underscore'
+tHelpers = require 'template-helpers'
+registrar = require 'handlebars-registrar'
 
-# HandlebarsHelpers.register(handlebars, {})
+# https://github.com/jonschlinkert/template-helpers
+registrar gulpHB.handlebars, { helpers: tHelpers._ }
 
 config =
   panini: # https://github.com/zurb/panini
@@ -25,24 +28,30 @@ config =
     sourceComments: true
   coffee:
     bare: true
-  gulpHB:
+  gulpHB: # https://github.com/shannonmoeller/gulp-hb
     partials: 'source/partials/**/*.hbs'
     data: 'source/data/**/*.{json,yml}'
     helpers: 'source/helpers/*.js'
+    parsePartialName: (f) -> path.basename(f.shortPath)
   layout:
     layout: 'source/layouts/default.hbs'
     engine: 'handlebars'
+  frontmatter:
+    property: 'data'
+    remove: true
 
-gulp.task 'html', ->
+gulp.task 'panini', ->
   gulp.src 'source/templates/**/*.html'
     .pipe panini config.panini
     .pipe gulp.dest 'build'
     .pipe connect.reload()
 
-gulp.task 'html2', ->
+gulp.task 'html', ->
   gulp.src 'source/templates/**/*.hbs'
+    .pipe frontmatter config.frontmatter
     .pipe gulpHB config.gulpHB
-    .pipe layout config.layout
+    .pipe layout (file) ->
+      return _.extend(config.layout, file.data)
     .pipe gulp.dest 'build'
     .pipe connect.reload()
 
@@ -74,7 +83,7 @@ gulp.task 'connect', ->
     livereload: true
 
 gulp.task 'watch', ->
-  gulp.watch ['source/**/*.html'], ['html']
+  gulp.watch ['source/**/*.hbs'], ['html']
   gulp.watch ['source/assets/styles/*.scss'], ['sass']
   gulp.watch ['source/assets/scripts/*.coffee'], ['coffee']
   gulp.watch ['source/assets/images/**/*.*'], ['images']
