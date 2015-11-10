@@ -1,0 +1,8 @@
+@import 'settings';
+@import 'foundation/components/grid';
+
+.margin-auto {
+  @include grid-column(6, $offset: 3, $collapse: true);
+  top: 130px;
+  text-align: center;
+}
