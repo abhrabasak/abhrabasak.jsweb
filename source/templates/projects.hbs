@@ -1,0 +1,22 @@
+---
+title: Projects
+stylesheets: projects
+---
+<main class="projects view">
+  <section class="projects-intro">
+    <h4>Projects</h4>
+    <p>
+      A list of stuff I've worked on and contributed to till date. I personally attempt to use a different set of technologies for each individual project. Each new project presents the opportunity to push limits creatively and technically.
+    </p>
+  </section>
+  <section class="project-articles">
+    <ul class="articles-list">
+      {{#each projects.[0] as |p _|}}
+      <li class="radius project">
+        <i>{{> link text=p.name url=p.url class="project-url"}}</i>
+        <p>{{p.text}}<br/><i>{{p.tech}}</i> ({{p.year}})</p>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+</main>
