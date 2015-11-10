@@ -1,0 +1,27 @@
+---
+title: Credits
+stylesheets: credits
+---
+<div class="credits view">
+  <section class="credits-intro">
+    <h4>Credits</h4>
+    <p>
+      This website has been proudly hand-crafted by me using
+      <strong>{{> link text="Foundation by Zurb" url="http://foundation.zurb.com"}}</strong>,
+      and <strong>{{> link text="The Middleman" url="http://middlemanapp.com"}}</strong>,
+      taking advantage of the power of <strong>{{> link text="Ruby" url="http://ruby-lang.org"}}</strong>
+      and <strong>{{> link text="Compass" url="http://compass-style.org"}}</strong>.
+      It is hosted using <strong>{{> link text="GitHub Pages" url="http://pages.github.com"}}</strong>.
+    </p>
+    <p>All Trademarks belong to their respective Owners.</p>
+    <h6 class="other-components">Other components</h6>
+    <ul class="credits-list">
+      {{#each credits.[0] as |url source|}}
+      <li>{{> link text=source url=url}}</li>
+      {{/each}}
+    </ul>
+  </section>
+  <section class="credits-components">
+
+  </section>
+</div>

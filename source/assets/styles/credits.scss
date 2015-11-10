@@ -1,0 +1,14 @@
+@import 'settings';
+@import 'foundation/components/grid';
+@import 'foundation/components/block-grid';
+
+.credits-intro,
+.credits-components{
+  @include grid-column(6, $float: left);
+}
+.credits-list {
+  @include block-grid(4);
+  > li {
+    text-align: center;
+  }
+}
