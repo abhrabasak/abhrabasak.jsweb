@@ -1,15 +1,15 @@
 gulp = require 'gulp'
-panini = require 'panini'
+_ = require 'underscore'
 connect = require 'gulp-connect'
 sass = require 'gulp-sass'
 coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
+frontmatter = require 'gulp-front-matter'
 gulpHB = require 'gulp-hb'
 path = require 'path'
 layout = require 'gulp-layout'
 del = require 'del'
-frontmatter = require 'gulp-front-matter'
-_ = require 'underscore'
+panini = require 'panini'
 tHelpers = require 'template-helpers'
 registrar = require 'handlebars-registrar'
 
@@ -83,7 +83,7 @@ gulp.task 'connect', ->
     livereload: true
 
 gulp.task 'watch', ->
-  gulp.watch ['source/**/*.hbs'], ['html']
+  gulp.watch ['source/**/*.hbs', 'source/**/*.yml'], ['html']
   gulp.watch ['source/assets/styles/*.scss'], ['sass']
   gulp.watch ['source/assets/scripts/*.coffee'], ['coffee']
   gulp.watch ['source/assets/images/**/*.*'], ['images']
