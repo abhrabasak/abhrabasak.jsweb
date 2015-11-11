@@ -1,0 +1,9 @@
+<section class="{{graphdata.id}}-graph">
+  {{#each graphdata.items as |items area|}}
+  <h5>{{area}}</h5>
+  {{#each items as |strength item|}}
+  <span class="secondary label radius">{{item}} ({{strength}}/100)</span>
+  <div class="nice radius progress success meter"><span class="meter" style="width: {{strength}}%"></span></div>
+  {{/each}}
+  {{/each}}
+</section>

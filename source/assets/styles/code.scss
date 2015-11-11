@@ -1,0 +1,18 @@
+@import 'settings';
+@import 'foundation/components/grid';
+$include-html-media-classes: true;
+@import 'foundation/components/progress-bars';
+$include-html-label-classes: true;
+@import 'foundation/components/labels';
+
+.skills-intro,
+.dev-graph,
+.skills-graph {
+  @include grid-column(4);
+}
+.label {
+  display: block;
+}
+.meter {
+  height: 12px;
+}

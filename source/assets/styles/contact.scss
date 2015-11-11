@@ -1,0 +1,24 @@
+@import 'settings';
+@import 'foundation/components/grid';
+
+.email{
+  @include grid-column(3, $offset: 1);
+}
+.mail-logo{
+  position: relative;
+  top: 90px;
+}
+.contact-intro{
+  @include grid-column(6, $offset: 1);
+  h4,
+  .social-icons{
+    text-align: center;
+  }
+}
+.email-link{
+  color: purple;
+  font-weight: 600;
+  &:hover{
+    color: purple;
+  }
+}
