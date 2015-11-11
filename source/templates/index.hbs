@@ -6,7 +6,6 @@ stylesheets:
 ---
 <main class="home view">
   <section class="display-pic">
-    {{lowercase "Abc"}}
     {{> image src='/assets/images/photo.jpg' alt='This is how I look' }}
   </section>
   <section class="hello-intro">
@@ -33,6 +32,6 @@ stylesheets:
   </section>
   <section class="home-social">
     <h5>Find out what I'm up to:</h5>
-    {{> social classnames="social panel" contacts=contact}}
+    {{> social classnames="social panel" contacts=contact.[0]}}
   </section>
 </main>
