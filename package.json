@@ -22,7 +22,7 @@
     "gulp-sass": "^2.1.0",
     "handlebars": "^4.0.4",
     "handlebars-registrar": "^1.5.2",
-    "panini": "^0.1.1",
+    "panini": "zurb/panini",
     "template-helpers": "^0.3.4",
     "underscore": "^1.8.3",
     "underscore.string": "^3.2.2"
