@@ -12,7 +12,7 @@ stylesheets:
   </section>
   <section class="project-articles">
     <ul class="articles-list">
-      {{#each data.projects as |p _|}}
+      {{#each projects as |p _|}}
       <li class="radius project">
         <i>{{> link text=p.name url=p.url class="project-url"}}</i>
         <p>{{p.text}}<br/><i>{{p.tech}}</i> ({{p.year}})</p>
