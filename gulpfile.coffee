@@ -10,6 +10,7 @@ path = require 'path'
 layout = require 'gulp-layout'
 del = require 'del'
 panini = require 'panini'
+rename = require 'gulp-rename'
 tHelpers = require 'template-helpers'
 registrar = require 'handlebars-registrar'
 
@@ -18,10 +19,11 @@ registrar gulpHB.handlebars, { helpers: tHelpers._ }
 
 config =
   panini: # https://github.com/zurb/panini
+    root: 'source/templates/'
     layouts: 'source/layouts/'
-    partials: 'source/partials/**/*.html'
-    data: 'source/data/**/*.{json,yml}'
-    helpers: 'source/helpers/*.js'
+    partials: 'source/partials/'
+    data: 'source/data/'
+    helpers: 'source/helpers/'
   sass: # https://github.com/sass/node-sass#options
     includePaths: ['source/bower/foundation/scss']
     outputStyle: 'expanded'
@@ -40,13 +42,15 @@ config =
     property: 'data'
     remove: true
 
-gulp.task 'panini', ->
-  gulp.src 'source/templates/**/*.html'
+gulp.task 'html', ->
+  gulp.src 'source/templates/**/*.hbs'
     .pipe panini config.panini
+    .pipe rename
+      extname: '.html'
     .pipe gulp.dest 'build'
     .pipe connect.reload()
 
-gulp.task 'html', ->
+gulp.task 'html2', ->
   gulp.src 'source/templates/**/*.hbs'
     .pipe frontmatter config.frontmatter
     .pipe gulpHB config.gulpHB
