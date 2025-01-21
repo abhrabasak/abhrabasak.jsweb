@@ -1,0 +1,119 @@
+{
+  "hazelward": {
+    "name": "Hazelward - High Performance Computational Intelligence Framework",
+    "occupation": "IIT Mandi",
+    "year": "2013-14",
+    "url": "https://github.com/Abhra1992/hazelward",
+    "text": "Designed a generalized Concurrent Prediction Framework based on Machine Learning for GPUs. Initial release of the framework tentatively includes Feed-Forward Neural Networks, Fuzzy Control Systems and Genetic Algorithms. Implemented in C++, the framework aspires to be a well-known standard library both in the machine learning and GPU computing communities.",
+    "tech": "C++ / C++ AMP / CUDA C++",
+    "collab": [
+      {
+        "name": "Apoorv",
+        "profile": "https://www.linkedin.com/profile/view?id=AAEAAApHlnAB1HZurdDAqZhisT3Y3Fw3T66M2t4"
+      },
+      {
+        "name": "Tushar",
+        "profile": "https://www.linkedin.com/profile/view?id=AAEAAAt7CM0B7jUEW2mSm2JOuvJAhzYEaH2AeFM"
+      }
+    ]
+  },
+  "a": {
+    "name": "Music Library Manager",
+    "occupation": "",
+    "year": "2010",
+    "url": "#",
+    "text": "A MVP of a iTunes-like music library manager for Windows",
+    "tech": "C++"
+  },
+  "iitmandi": {
+    "name": "IIT Mandi Website",
+    "year": "2010-13",
+    "url": "http://iitmandi.ac.in",
+    "text": "Official Website of Indian Institute of Technology Mandi, Himachal Pradesh. This is the main public-facing repository of information, pertaining to all aspects of the institute. Contains a special section for attracting prospective students.",
+    "tech": "JavaScript / Ruby / PHP / MySQL"
+  },
+  "brivdiena": {
+    "name": "Extended Leave Management System / Faculty Leave Register",
+    "year": "2011-12",
+    "url": "https://github.com/Abhra1992/brivdiena",
+    "text": "Designed a flexible Leave Management System for medium-scale automation of rule-based leave registers at IIT Mandi, a rapidly growing institute transitioning to its new campus. Helped set up the system for use by faculty, staff and research scholars.",
+    "tech": "JavaScript / PHP / MySQL"
+  },
+  "basin": {
+    "name": "3D Non-Linear Basin Boundary Dynamics",
+    "year": "2012",
+    "url": "#",
+    "text": "Studied the behaviour of strange attractors in a 3-dimensional Lorenz system as a model of atmospheric convections, and determined the sensitivity dependence of the solutions on initial conditions.",
+    "tech": "Python / SciPy / Matplotlib"
+  },
+  "aitc": {
+    "name": "Adaptive Intellisense Traffic-Signal Controller",
+    "year": "2012",
+    "url": "#",
+    "text": "Developed a prototype for a Real-time Traffic Signal System for Himachal Roadways based on Instantaneous Traffic Density. This system determines the signal green time by maintaining a running count of vehicles, and can potentially bring down traffic jams by 48% in narrow strips of Himalayan roads.",
+    "tech": "Assembly / Arduino C"
+  },
+  "virus": {
+    "name": "Analysis of Intrusion Detection and Attack Proliferation in Computer Networks",
+    "year": "2012",
+    "url": "#",
+    "text": "Simulation of an intrusion attack on a computer network to analyse how the attack proliferates, and comparing the results with similar conclusions obtained from spread of diseases in living beings. The observations showed resemblance the SIR epidemic model.",
+    "tech": "C / Tcl / NS2 / Matlab"
+  },
+  "bias": {
+    "name": "Biomedical Information Analysis System",
+    "year": "2012",
+    "url": "https://github.com/Abhra1992/bias",
+    "text": "Data Intensive Application intended to be a centralized repository for obtaining all medical history and information in a country. Information was provided via a RESTful API, suitable for consumption both by medical insurance websites, as well as mobile applications.",
+    "tech": "JavaScript / PHP / MySQL"
+  },
+  "cbs": {
+    "name": "Distributed Core Banking System",
+    "year": "2013",
+    "url": "https://github.com/vikhyat/CoreBankingSystem",
+    "text": "Prototype for a Distributed CBS running on a High Performance Cluster, tested to handle up to 4000 transactions/second. The backend comprised instances of Go servers, with Redis as a distributed persistence layer, and HAProxy as a load balancer.",
+    "tech": "Go / Redis / HAProxy"
+  },
+  "dictionary": {
+    "name": "Profiling Dictionary ADTs",
+    "year": "2013",
+    "url": "https://github.com/Abhra1992/dictionary",
+    "text": "Performance analysis and comparison of performances of different implementations of the dictionary ADT. The implementations included data structures such as Binary Search Trees, AVL Trees, Red Black Trees, Splay Trees and Hash Tables.",
+    "tech": "C# / WPF"
+  },
+  "j": {
+    "name": "Distibuted Database Blog",
+    "year": "2013",
+    "url": "#",
+    "text": "Implementation of a blog running on a distributed MySQL cluster",
+    "tech": "JavaScript / Ruby / Rails / MySQL"
+  },
+  "cognitive": {
+    "name": "Decision Making Strategies",
+    "year": "2013",
+    "url": "#",
+    "text": "Use of Game Theory to tackle the Instance-Based Decision Making Model of Repeated Binary Choice",
+    "tech": "Matlab / Python / SciPy"
+  },
+  "internship": {
+    "name": "Internship @ Microsoft",
+    "year": "2013",
+    "url": "#",
+    "text": "Backend data processing for AutoSuggest Deep-links Navigation for Microsoft product support queries on Bing.com. Natural Language Processing to facilitate faceted search for Tech Help intent. Extraction and mining of official knowledge-base articles in support.microsoft.com. Links to officially accepted solved questions are extracted and retrieved from the AutoSuggest store when a similar or related query is detected.",
+    "tech": "Ruby / Python / SQL Server"
+  },
+  "usability": {
+    "name": "Usability Evaluation of the IIT Mandi Website",
+    "year": "2012",
+    "url": "http://www.slideshare.net/abracadabra2010/usability-evaluation-iit-mandi",
+    "text": "An exploratory evaluation of the usability of IIT Mandi website, by analyzing users' satisfaction with interactions on the website (mined from website usage data and surveys), and determining the degree of accessibility using Cambridge HCI Simulator. Prospective improvements upon the website configurations were suggested, accompanied by an improved prototype design.",
+    "tech": "JavaScript"
+  },
+  "bus": {
+    "name": "Vehicle Tracking and Synchronisation",
+    "year": "2013",
+    "url": "#",
+    "text": "Buses as a mode of transportation are the backbone of the economy in the state of Himachal Pradesh (India). We designed a solution to effectively track the availability and demand, and synchronize the travel schedules efficiently. We were the runners-up to the best project award.",
+    "tech": "JavaScript"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "skills",
+  "items": {
+    "On The Desktop": {
+      "C#": 90,
+      "Ruby": 70,
+      "C++": 70,
+      "Python": 60
+    },
+    "On The Web / Mobile": {
+      "Ruby": 80,
+      "C#": 80,
+      "JavaScript": 70,
+      "PHP": 60
+    }
+  }
+}
