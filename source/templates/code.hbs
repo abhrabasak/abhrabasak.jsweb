@@ -4,12 +4,14 @@ stylesheets:
 - code
 - webicons
 ---
+{{#> default}}
 <main class="code view">
   <section class="skills-intro">
     <h4>Code/Skills</h4>
     <p>Here is an overview of my development and coding skills. Have a look at my GitHub profile for some code samples.</p>
-    {{> iconpane itemtype=code.[0].id items=code.[0].icons}}
+    {{> iconpane itemtype=code.id items=code.icons}}
   </section>
-  {{> graph graphdata=dev.[0]}}
-  {{> graph graphdata=skills.[0]}}
+  {{> graph graphdata=dev}}
+  {{> graph graphdata=skills}}
 </main>
+{{/default}}

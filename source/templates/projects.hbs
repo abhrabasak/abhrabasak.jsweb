@@ -3,6 +3,7 @@ title: Projects
 stylesheets:
 - projects
 ---
+{{#> default}}
 <main class="projects view">
   <section class="projects-intro">
     <h4>Projects</h4>
@@ -12,7 +13,7 @@ stylesheets:
   </section>
   <section class="project-articles">
     <ul class="articles-list">
-      {{#each projects.[0] as |p _|}}
+      {{#each projects as |p _|}}
       <li class="radius project">
         <i>{{> link text=p.name url=p.url class="project-url"}}</i>
         <p>{{p.text}}<br/><i>{{p.tech}}</i> ({{p.year}})</p>
@@ -21,3 +22,4 @@ stylesheets:
     </ul>
   </section>
 </main>
+{{/default}}

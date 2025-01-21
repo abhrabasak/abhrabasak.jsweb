@@ -4,6 +4,7 @@ stylesheets:
 - home
 - webicons
 ---
+{{#> default}}
 <main class="home view">
   <section class="display-pic">
     {{> image src='/assets/images/photo.jpg' alt='This is how I look' }}
@@ -32,6 +33,7 @@ stylesheets:
   </section>
   <section class="home-social">
     <h5>Find out what I'm up to:</h5>
-    {{> social classnames="social panel" contacts=contact.[0]}}
+    {{> social classnames="social panel" contacts=contact}}
   </section>
 </main>
+{{/default}}

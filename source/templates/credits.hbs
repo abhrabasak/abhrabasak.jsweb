@@ -3,6 +3,7 @@ title: Credits
 stylesheets:
 - credits
 ---
+{{#> default}}
 <div class="credits view">
   <section class="credits-intro">
     <h4>Credits</h4>
@@ -17,7 +18,7 @@ stylesheets:
     <p>All Trademarks belong to their respective Owners.</p>
     <h6 class="other-components">Other components</h6>
     <ul class="credits-list">
-      {{#each credits.[0] as |url source|}}
+      {{#each credits as |url source|}}
       <li>{{> link text=source url=url}}</li>
       {{/each}}
     </ul>
@@ -26,3 +27,4 @@ stylesheets:
 
   </section>
 </div>
+{{/default}}
