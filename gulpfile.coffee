@@ -1,68 +1,62 @@
 gulp = require 'gulp'
 _ = require 'underscore'
 connect = require 'gulp-connect'
-sass = require 'gulp-sass'
+sass = (require 'gulp-sass')(require 'sass')
 coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
+rename = require 'gulp-rename'
 frontmatter = require 'gulp-front-matter'
-gulpHB = require 'gulp-hb'
+hb = require 'gulp-hb'
 path = require 'path'
 layout = require 'gulp-layout'
 del = require 'del'
 panini = require 'panini'
-tHelpers = require 'template-helpers'
-registrar = require 'handlebars-registrar'
-
-# https://github.com/jonschlinkert/template-helpers
-registrar gulpHB.handlebars, { helpers: tHelpers._ }
+# tHelpers = require 'template-helpers'
+hbsHelpers = (require 'handlebars-helpers')()
 
 config =
-  panini: # https://github.com/zurb/panini
-    layouts: 'source/layouts/'
-    partials: 'source/partials/**/*.html'
-    data: 'source/data/**/*.{json,yml}'
-    helpers: 'source/helpers/*.js'
-  sass: # https://github.com/sass/node-sass#options
-    includePaths: ['source/bower/foundation/scss']
-    outputStyle: 'expanded'
-    sourceComments: true
   coffee:
     bare: true
-  gulpHB: # https://github.com/shannonmoeller/gulp-hb
-    partials: 'source/partials/**/*.hbs'
-    data: 'source/data/**/*.{json,yml}'
-    helpers: 'source/helpers/*.js'
-    parsePartialName: (f) -> path.basename(f.shortPath)
-  layout:
-    layout: 'source/layouts/default.hbs'
-    engine: 'handlebars'
-  frontmatter:
-    property: 'data'
-    remove: true
 
 gulp.task 'panini', ->
   gulp.src 'source/templates/**/*.html'
-    .pipe panini config.panini
+    .pipe panini  # https://github.com/zurb/panini
+      layouts: 'source/layouts/'
+      partials: 'source/partials/**/*.html'
+      data: 'source/data/**/*.{json,yml}'
+      helpers: 'source/helpers/*.js'
     .pipe gulp.dest 'build'
     .pipe connect.reload()
 
 gulp.task 'html', ->
   gulp.src 'source/templates/**/*.hbs'
-    .pipe frontmatter config.frontmatter
-    .pipe gulpHB config.gulpHB
-    .pipe layout (file) ->
-      return _.extend(config.layout, file.data)
+    .pipe frontmatter
+      property: 'data'
+      remove: true
+    .pipe hb({ debug: true }) # https://github.com/shannonmoeller/gulp-hb
+      .partials 'source/partials/**/*.hbs',
+        parsePartialName: (o, f) -> path.basename(f.path, path.extname(f.path))
+      .partials 'source/layouts/*.hbs'
+      .data 'source/data/**/*.{json,yml}'
+      .helpers 'source/helpers/*.js'
+      # .helpers tHelpers # http://jonschlinkert.github.io/template-helpers
+      .helpers hbsHelpers # https://github.com/helpers/handlebars-helpers
+    .pipe rename
+      extname: '.html'
     .pipe gulp.dest 'build'
     .pipe connect.reload()
 
 gulp.task 'sass', ->
   gulp.src ['source/assets/styles/*.scss']
-    .pipe sass config.sass
+    .pipe sass # https://sass-lang.com/documentation/js-api/interfaces/options/
+      loadPaths: ['source/bower/foundation/scss']
+      style: 'expanded'
+      sourceComments: true # Unsupported: https://github.com/sass/node-sass#options
     .pipe gulp.dest 'build/assets/styles'
     .pipe connect.reload()
 
 gulp.task 'scripts', ->
-  gulp.src ['source/bower/foundation/js/vendor/modernizr.js', 'source/bower/foundation/js/vendor/jquery.js']
+  gulp.src ['source/bower/foundation/js/vendor/{modernizr,jquery}.js']
     .pipe concat 'app.js'
     .pipe gulp.dest 'build/assets/scripts/'
 
@@ -83,13 +77,14 @@ gulp.task 'connect', ->
     livereload: true
 
 gulp.task 'watch', ->
-  gulp.watch ['source/**/*.hbs', 'source/**/*.yml'], ['html']
-  gulp.watch ['source/assets/styles/*.scss'], ['sass']
-  gulp.watch ['source/assets/scripts/*.coffee'], ['coffee']
-  gulp.watch ['source/assets/images/**/*.*'], ['images']
+  gulp.watch ['source/**/*.hbs', 'source/**/*.json'], (gulp.series 'html')
+  gulp.watch ['source/assets/styles/*.scss'], (gulp.series 'sass')
+  gulp.watch ['source/assets/scripts/*.coffee'], (gulp.series 'coffee')
+  gulp.watch ['source/assets/images/**/*.*'], (gulp.series 'images')
 
 gulp.task 'clean', (cb)->
-  del ['build'], cb
+  del.deleteSync ['build']
+  cb()
 
-gulp.task 'build', ['html', 'sass', 'scripts', 'coffee', 'images']
-gulp.task 'default', ['build', 'connect', 'watch']
+gulp.task 'build', (gulp.parallel 'html', 'sass', 'scripts', 'coffee', 'images')
+gulp.task 'default', (gulp.series 'build', 'connect', 'watch')
